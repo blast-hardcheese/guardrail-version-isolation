@@ -1,6 +1,7 @@
-scalaVersion in ThisBuild := "2.11.12"
+scalaVersion in ThisBuild := "2.12.5"
 
-val akkaVersion       = "10.1.7"
+val akkaVersion       = "10.1.0"
+val akkaStreamVersion = "2.3.5"
 val circeVersion      = "0.11.0"
 val catsVersion       = "0.5.0"
 val http4sVersion     = "0.19.0"
@@ -11,6 +12,7 @@ lazy val akka = (project in file("modules/akka"))
     libraryDependencies ++= Seq(
       "com.typesafe.akka" %% "akka-http"           % akkaVersion,
       "com.typesafe.akka" %% "akka-http-testkit"   % akkaVersion,
+      "com.typesafe.akka" %% "akka-stream"         % akkaStreamVersion,
       "io.circe"          %% "circe-core"          % circeVersion,
       "io.circe"          %% "circe-generic"       % circeVersion,
       "io.circe"          %% "circe-java8"         % circeVersion,
@@ -83,5 +85,3 @@ lazy val http4s = (project in file("modules/http4s"))
       Server(file("guardrail/modules/sample/src/main/resources/issues/issue148.yaml"), pkg="issues.issue148.server.http4s", framework="http4s", imports = List("support.PositiveLong"))
     )
   )
-
-scalacOptions += "-Ypartial-unification"
