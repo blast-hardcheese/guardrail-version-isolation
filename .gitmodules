@@ -1,0 +1,3 @@
+[submodule "guardrail"]
+	path = guardrail
+	url = git@github.com:twilio/guardrail.git
